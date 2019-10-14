@@ -9,6 +9,9 @@ const indexHTML = (() => {
 
 app.use("/dist", express.static(path.resolve(__dirname, "./dist")));
 
+// Here we extend the server with the two new modules we created in the dev-server
+require("./build/dev-server")(app);
+
 // Here I define an event handler for all the get requests.
 // If we wanted to listen to a specific path we can do app.get('/pathname');
 app.get('*', (req, res) => {
